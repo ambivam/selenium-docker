@@ -1,11 +1,32 @@
 pipeline {
-    agent {
-        docker { image 'node:14-alpine' }
-    }
+    agent none
     stages {
-        stage('Test') {
+        stage('Build Jar') {
+            agent {
+                docker {
+                    image 'maven:3-alpine'
+                    args '-v /d/maven/.m2:/root/.m2'
+                }
+            }
             steps {
-                sh 'node --version'
+                sh 'mvn clean package -DskipTests'
+            }
+        }
+        stage('Build Image') {
+            steps {
+                script {
+                	app = docker.build("ambivam/selenium-docker")
+                }
+            }
+        }
+        stage('Push Image') {
+            steps {
+                script {
+			        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+			        	app.push("${BUILD_NUMBER}")
+			            app.push("latest")
+			        }
+                }
             }
         }
     }
