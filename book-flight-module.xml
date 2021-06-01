@@ -3,25 +3,25 @@
     <test name="book-flight-1">
         <parameter name="noOfPassengers" value="1" />
         <classes>
-            <class name = "com.newtours.tests.BookFlightTest" />
+            <class name="com.newtours.tests.BookFlightTest" />
         </classes>
     </test>
     <test name="book-flight-2">
         <parameter name="noOfPassengers" value="2" />
         <classes>
-            <class name = "com.newtours.tests.BookFlightTest" />
+            <class name="com.newtours.tests.BookFlightTest" />
         </classes>
     </test>
     <test name="book-flight-3">
         <parameter name="noOfPassengers" value="3" />
         <classes>
-            <class name = "com.newtours.tests.BookFlightTest" />
+            <class name="com.newtours.tests.BookFlightTest" />
         </classes>
     </test>
     <test name="book-flight-4">
         <parameter name="noOfPassengers" value="4" />
         <classes>
-            <class name = "com.newtours.tests.BookFlightTest" />
+            <class name="com.newtours.tests.BookFlightTest" />
         </classes>
     </test>
 </suite>
