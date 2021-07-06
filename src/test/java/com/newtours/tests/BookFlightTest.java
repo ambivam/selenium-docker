@@ -19,7 +19,7 @@ public class BookFlightTest extends BaseTest {
         this.noOfPassengers = noOfPassengers;
     }
 
-    @Test
+    @Test(description = "Registration")
     public void registrationPage(){
         RegistrationPage registrationPage = new RegistrationPage(driver);
         registrationPage.goTo();;
@@ -28,20 +28,20 @@ public class BookFlightTest extends BaseTest {
         registrationPage.submit();
     }
 
-    @Test(dependsOnMethods = "registrationPage")
+    @Test(description = "Registration Confirmation ", dependsOnMethods = "registrationPage")
     public void registrationConfirmationPage(){
         RegistrationConfirmationPage registrationConfirmationPage = new RegistrationConfirmationPage(driver);
         registrationConfirmationPage.goToFlightDetailsPage();
     }
 
-    @Test(dependsOnMethods = "registrationConfirmationPage")
+    @Test(description = "Flight Details Page ",dependsOnMethods = "registrationConfirmationPage")
     public void flightDetailsPage(){
         FlightDetailsPage flightDetailsPage = new FlightDetailsPage(driver);
         flightDetailsPage.selectPassengers(this.noOfPassengers);
         flightDetailsPage.goToFindFlightsPage();
     }
 
-    @Test(dependsOnMethods = "flightDetailsPage")
+    @Test(description = "Search Flight ",dependsOnMethods = "flightDetailsPage")
     public void findFlightPage(){
         FindFlightPage findFlightPage = new FindFlightPage(driver);
         findFlightPage.submitFindFlightPage();

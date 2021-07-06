@@ -10,7 +10,7 @@ import tests.BaseTest;
 
 public class SearchTest extends BaseTest {
 
-    @Test
+    @Test(description = "search for Info")
     @Parameters({"keyword"})
     public void search(String keyword){
         SearchPage searchPage = new SearchPage(driver);
